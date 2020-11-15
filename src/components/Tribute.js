@@ -6,7 +6,7 @@ const Tribute = () => {
         <div class="wrapper">
             <div class="main">
                 <div class="quote">
-                    <img href="#"></img>
+                    <img alt="alex trebek" href="#"></img>
                     <h2>"I don't spend any time whatsoever thinking about what might have been."</h2>
                 </div>
                  <div class="sign">
