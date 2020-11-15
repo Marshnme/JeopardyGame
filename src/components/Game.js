@@ -8,7 +8,7 @@ const Game = () => {
         axios
             .get("http://jservice.io/Random")
             .then(response => {
-                
+             setQuestions()   
             
             console.log("response data:", response.data);
         })
