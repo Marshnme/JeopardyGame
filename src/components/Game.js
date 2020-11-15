@@ -6,7 +6,7 @@ const Game = () => {
     const [questions, setQuestions] = useState([])
     useEffect(() => {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const url = "https://jservice.io/Random";
+        const url = "https://jservice.io/api/random";
         axios
             .get(proxyurl + url)
             .then(response => {
