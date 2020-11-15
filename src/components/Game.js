@@ -5,8 +5,10 @@ import './game.css';
 const Game = () => {
     const [questions, setQuestions] = useState([])
     useEffect(() => {
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const url = "https://jservice.io/Random";
         axios
-            .get("https://jservice.io/Random")
+            .get(proxyurl + url)
             .then(response => {
              setQuestions("dog")   
             
