@@ -6,7 +6,7 @@ const Game = () => {
     const [questions, setQuestions] = useState([])
     useEffect(() => {
         axios
-            .get("http://jservice.io/Random")
+            .get("https://jservice.io/Random")
             .then(response => {
              setQuestions("dog")   
             
