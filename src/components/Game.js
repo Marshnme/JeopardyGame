@@ -8,7 +8,7 @@ const Game = () => {
         axios
             .get("http://jservice.io/Random")
             .then(response => {
-             setQuestions()   
+             setQuestions("dog")   
             
             console.log("response data:", response.data);
         })
@@ -16,13 +16,17 @@ const Game = () => {
             console.log("data was not returned", error);
         });
         }, []);
+
+        console.log(questions)
     return(
         <div class="container">
             <header>
                 Score:
             </header>
             <main>
-
+                <div>
+                   <h3>questions</h3> 
+                </div>
             </main>
         </div>
     );
