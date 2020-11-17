@@ -1,8 +1,9 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios';
+import Questions from './Questions'
 import './game.css';
 
-const Game = () => {
+const Game = (props) => {
     const [questions, setQuestions] = useState([])
     useEffect(() => {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -10,7 +11,7 @@ const Game = () => {
         axios
             .get(proxyurl + url)
             .then(response => {
-             setQuestions("dog")   
+             setQuestions(response.data)   
             
             console.log("response data:", response.data);
         })
@@ -26,9 +27,10 @@ const Game = () => {
                 Score:
             </header>
             <main>
-                <div>
-                   <h3>questions</h3> 
-                </div>
+                {questions.map(question =>
+        
+                     (<Questions question={question}/>
+                     ))}
             </main>
         </div>
     );
