@@ -7,7 +7,7 @@ const Questions = (props) => {
         <div class="gameTile">
             <p>Category: {props.question.category.title}</p>
             <p>Question: {props.question.question}</p>
-            <p>Answer: {props.question.answer}</p>
+            {/* <p>Answer: {props.question.answer}</p> */}
             <p>Value: {props.question.value}</p>
         </div>
     );
