@@ -26,7 +26,7 @@ const Game = (props) => {
         }, []);
 
         const CorrectQuestion = () => {
-            // if input = response.answer
+            // if input == response.answer
             // setScore(...score,response.value)
             // add all values in score array and return score to update 
         }
@@ -35,7 +35,7 @@ const Game = (props) => {
     return(
         <div class="container">
             <header>
-                Score:
+                Score:{score}
             </header>
             <main>
                 {questions.map(question =>
