@@ -5,12 +5,21 @@ import './game.css';
 
 const Game = (props) => {
     const [questions, setQuestions] = useState([])
-    const [score, setScore] = useState([])
+    // const [correct, setCorrectList] = useState([])
+    const [score, setScore] = useState(0)
     // FIND WAY TO CALL API MULTPLE TIMES FOR MULTIPLE QUESIONS.
 
         // Make use effect call in question component and render the question.js multiple times 
-        //call for categories instead of random and see if it returns all questions in catergory and use that insread of random
-    useEffect(() => {
+            //call for categories instead of random and see if it returns all questions in catergory and use that insread of random
+    
+    //IDEAS
+         
+        //make entire game only one question at a time. In certain time limit get through as many as you can 
+        // and see total point earned after. 
+            //FUTRE PLANS
+                //Leader board system for most points?
+    
+            useEffect(() => {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "https://jservice.io/api/random/";
         axios
@@ -27,10 +36,10 @@ const Game = (props) => {
 
         const CorrectQuestion = () => {
             // if input == response.answer
-            // setScore(...score,response.value)
-            // add all values in score array and return score to update 
+            // setcorrectlist(...correctlist,response.value)
+            // add all values in correctlist array and setscore to update 
         }
-
+        setScore(0)
         console.log(questions)
     return(
         <div class="container">
