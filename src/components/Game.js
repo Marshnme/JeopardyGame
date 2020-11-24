@@ -32,13 +32,10 @@ const Game = () => {
         }, []);
 
         const [questions, setQuestions] = useState([])
-    // const [correct, setCorrectList] = useState([])
         const [score, setScore] = useState(0)
 
 
         const AnswerInput = (userAnswer,questionsInfo) => {
-            // if input == response.answer
-            console.log(questionsInfo)
             if(userAnswer === questionsInfo.answer){
                 CorrectAnswer(questionsInfo.value);
             }else{
@@ -49,6 +46,17 @@ const Game = () => {
 
         const CorrectAnswer = (value) => {
              setScore(score + value);
+             const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const url = "https://jservice.io/api/random/";
+        axios
+            .get(proxyurl + url)
+            .then(response => {
+             setQuestions(response.data)   
+            
+        })
+        .catch(error => {
+            console.log("data was not returned", error);
+        });
         }
 
 
@@ -62,7 +70,7 @@ const Game = () => {
             <main>
                 {questions.map(question =>
         
-                     (<Questions question={question}/>
+                     (<Questions key={question.id}question={question}/>
                      ))}
                      <button onClick = {() => AnswerInput(questions[0].answer,questions[0])}>click me</button>
             </main>
