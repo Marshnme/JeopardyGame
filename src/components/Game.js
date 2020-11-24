@@ -3,10 +3,7 @@ import axios from 'axios';
 import Questions from './Questions'
 import './game.css';
 
-const Game = (props) => {
-    const [questions, setQuestions] = useState([])
-    // const [correct, setCorrectList] = useState([])
-    const [score, setScore] = useState(0)
+const Game = () => {
     // FIND WAY TO CALL API MULTPLE TIMES FOR MULTIPLE QUESIONS.
 
         // Make use effect call in question component and render the question.js multiple times 
@@ -27,30 +24,47 @@ const Game = (props) => {
             .then(response => {
              setQuestions(response.data)   
             
-            console.log("response data:", response.data);
+            // console.log("response data:", response.data);
         })
         .catch(error => {
             console.log("data was not returned", error);
         });
         }, []);
 
-        const CorrectQuestion = () => {
+        const [questions, setQuestions] = useState([])
+    // const [correct, setCorrectList] = useState([])
+        const [score, setScore] = useState(0)
+
+
+        const AnswerInput = (userAnswer,questionsInfo) => {
             // if input == response.answer
-            // setcorrectlist(...correctlist,response.value)
-            // add all values in correctlist array and setscore to update 
+            console.log(questionsInfo)
+            if(userAnswer === questionsInfo.answer){
+                CorrectAnswer(questionsInfo.value);
+            }else{
+                 console.log("WRONG");
+            }
+            
+            }
+
+        const CorrectAnswer = (value) => {
+             setScore(score + value);
         }
-        setScore(0)
-        console.log(questions)
+
+
+        
+        console.log("questions:",questions)
     return(
         <div class="container">
             <header>
-                Score:{score}
+                Score: ${score}
             </header>
             <main>
                 {questions.map(question =>
         
                      (<Questions question={question}/>
                      ))}
+                     <button onClick = {() => AnswerInput(questions[0].answer,questions[0])}>click me</button>
             </main>
         </div>
     );
