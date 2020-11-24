@@ -32,13 +32,10 @@ const Game = () => {
         }, []);
 
         const [questions, setQuestions] = useState([])
-    // const [correct, setCorrectList] = useState([])
         const [score, setScore] = useState(0)
 
 
         const AnswerInput = (userAnswer,questionsInfo) => {
-            // if input == response.answer
-            console.log(questionsInfo)
             if(userAnswer === questionsInfo.answer){
                 CorrectAnswer(questionsInfo.value);
             }else{
@@ -62,7 +59,7 @@ const Game = () => {
             <main>
                 {questions.map(question =>
         
-                     (<Questions question={question}/>
+                     (<Questions key={question.id}question={question}/>
                      ))}
                      <button onClick = {() => AnswerInput(questions[0].answer,questions[0])}>click me</button>
             </main>
