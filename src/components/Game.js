@@ -46,6 +46,17 @@ const Game = () => {
 
         const CorrectAnswer = (value) => {
              setScore(score + value);
+             const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const url = "https://jservice.io/api/random/";
+        axios
+            .get(proxyurl + url)
+            .then(response => {
+             setQuestions(response.data)   
+            
+        })
+        .catch(error => {
+            console.log("data was not returned", error);
+        });
         }
 
 
