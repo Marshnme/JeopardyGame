@@ -1,0 +1,7 @@
+.gameTile{
+    background-color: aqua;
+    display:flex;
+    flex-flow: column wrap;
+    width:100%;
+}
+
