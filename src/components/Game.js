@@ -39,7 +39,7 @@ const Game = () => {
             if(userAnswer === questionsInfo.answer){
                 CorrectAnswer(questionsInfo.value);
             }else{
-                 console.log("WRONG");
+                 WrongAnswer(questionsInfo.value)
             }
             
             }
@@ -59,6 +59,20 @@ const Game = () => {
         });
         }
 
+        const WrongAnswer = (value) => {
+            setScore(score - value);
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+       const url = "https://jservice.io/api/random/";
+       axios
+           .get(proxyurl + url)
+           .then(response => {
+            setQuestions(response.data)   
+           
+       })
+       .catch(error => {
+           console.log("data was not returned", error);
+       });
+       }
 
         
         console.log("questions:",questions)
@@ -72,7 +86,8 @@ const Game = () => {
         
                      (<Questions key={question.id}question={question}/>
                      ))}
-                     <button onClick = {() => AnswerInput(questions[0].answer,questions[0])}>click me</button>
+                     <button onClick = {() => AnswerInput(questions[0].answer,questions[0])}>click me(correct)</button>
+                     <button onClick = {() => AnswerInput("wrong",questions[0])}>click me(wrong)</button>
             </main>
         </div>
     );
