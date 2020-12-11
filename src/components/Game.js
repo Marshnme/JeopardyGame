@@ -15,8 +15,11 @@ const Game = () => {
         // and see total point earned after. 
             //FUTRE PLANS
                 //Leader board system for most points?
+                
     
             useEffect(() => {
+
+                // Not using my own api so I could enable cors and found a work around
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "https://jservice.io/api/random/";
         axios
@@ -79,7 +82,10 @@ const Game = () => {
     return(
         <div class="container">
             <header>
-                Score: ${score}
+                <div className="scoreStyle">
+                    Score: ${score}
+                </div>
+               
             </header>
             <main>
                 {questions.map(question =>
