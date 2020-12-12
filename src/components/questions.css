@@ -3,5 +3,9 @@
     display:flex;
     flex-flow: column wrap;
     width:100%;
+    margin-top:1%;
 }
 
+.tileTitles{
+    font-size: 2rem;
+}

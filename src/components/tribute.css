@@ -7,6 +7,7 @@
     min-height: 100vh;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .main{
@@ -15,7 +16,8 @@
     width:80%;
     height:70vh;
     border:1px solid black;
-    background:rgba(0, 0, 0, 0.43)
+    background:rgba(0, 0, 0, 0.43);
+    box-sizing: border-box;
 }
 
 .main .quote img{
@@ -26,10 +28,11 @@
 .quote{
     display:flex;
     width:100%;
-    
+    box-sizing: border-box;
     align-items: center;
 }
 .sign{
     display:flex;
+    box-sizing: border-box;
     align-items: flex-end;
 }
