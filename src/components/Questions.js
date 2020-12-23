@@ -4,7 +4,7 @@ import './questions.css'
 
 const Questions = (props) => {
     return(
-        <div class="gameTile">
+        <div className="gameTile">
             <h3 className="tileTitles">Category</h3>
             <p>{props.question.category.title}</p>
             <h3 className="tileTitles">Question</h3>
