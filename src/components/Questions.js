@@ -3,6 +3,7 @@ import './questions.css'
 
 
 const Questions = (props) => {
+    console.log("questions props",props)
     return(
         <div className="gameTile">
             <h3 className="tileTitles">Category</h3>

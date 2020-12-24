@@ -30,13 +30,21 @@ const Game = () => {
         axios
             .get(proxyurl + url)
             .then(response => {
-             setQuestions(response.data)   
+             setQuestions(prevQues => ([...prevQues,...response.data]))   
+            return axios.get(proxyurl + url)
+            })
+            .then(response => {
+                setQuestions(prevQues => ([...prevQues,...response.data]))   
+            return axios.get(proxyurl + url)
+            })
+            .then(response => {
+                setQuestions(prevQues => ([...prevQues,...response.data]))   
             
-            console.log("response data:", response.data);
-        })
-        .catch(error => {
-            console.log("data was not returned", error);
-        });
+            })
+            .catch(error =>{
+                console.log("error",error)
+            })
+    
         }, []);
 
        
