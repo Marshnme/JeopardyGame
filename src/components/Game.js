@@ -105,6 +105,8 @@ const Game = () => {
                      ))}
                      <button onClick = {() => AnswerInput(questions[0].answer,questions[0])}>click me(correct)</button>
                      <button onClick = {() => AnswerInput("wrong",questions[0])}>click me(wrong)</button>
+                     <label for="answer">Take a guess:</label>
+                     <input type="text" name="answer"></input>
             </main>
         </div>
     );

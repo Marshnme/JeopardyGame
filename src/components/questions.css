@@ -1,11 +1,18 @@
 .gameTile{
-    background-color: aqua;
+    
     display:flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     width:100%;
     margin-top:1%;
+    justify-content:center;
+    align-items:center;
 }
 
 .tileTitles{
     font-size: 2rem;
+}
+
+.questionInfo{
+    width:30%;
+    background-color: aqua;
 }
