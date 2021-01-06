@@ -17,6 +17,7 @@ const Game = () => {
                 //Leader board system for most points?
         const [questions, setQuestions] = useState([])
         const [score, setScore] = useState(0)
+        const [userGuess, setUserGuess] = useState("")
 
 
         
@@ -29,14 +30,14 @@ const Game = () => {
         const url = "https://jservice.io/api/random/";
         axios
             .get(proxyurl + url)
-            .then(response => {
-             setQuestions(prevQues => ([...prevQues,...response.data]))   
-            return axios.get(proxyurl + url)
-            })
-            .then(response => {
-                setQuestions(prevQues => ([...prevQues,...response.data]))   
-            return axios.get(proxyurl + url)
-            })
+            // .then(response => {
+            //  setQuestions(prevQues => ([...prevQues,...response.data]))   
+            // return axios.get(proxyurl + url)
+            // })
+            // .then(response => {
+            //     setQuestions(prevQues => ([...prevQues,...response.data]))   
+            // return axios.get(proxyurl + url)
+            // })
             .then(response => {
                 setQuestions(prevQues => ([...prevQues,...response.data]))   
             
@@ -47,7 +48,15 @@ const Game = () => {
     
         }, []);
 
-       
+        const handleChange = (e) =>{
+            e.preventDefault();
+            setUserGuess([e.target.value]);
+        };
+
+        
+        const handleSubmit = (e) =>{
+            e.preventDefault();
+        };
 
         const AnswerInput = (userAnswer,questionsInfo) => {
             if(userAnswer === questionsInfo.answer){
@@ -90,6 +99,7 @@ const Game = () => {
 
         
         console.log("questions:",questions)
+        console.log("userGuess:",userGuess)
     return(
         <div className="container">
             <header>
@@ -103,10 +113,12 @@ const Game = () => {
         
                      (<Questions key={question.id}question={question}/>
                      ))}
-                     <button onClick = {() => AnswerInput(questions[0].answer,questions[0])}>click me(correct)</button>
-                     <button onClick = {() => AnswerInput("wrong",questions[0])}>click me(wrong)</button>
-                     <label for="answer">Take a guess:</label>
-                     <input type="text" name="answer"></input>
+                     <form onSubmit={handleSubmit}>
+                        <label for="guess">Take a guess:</label>
+                        <input type="text" name="guess" onChange={handleChange} value={userGuess}></input>
+                        <button onClick = {() => AnswerInput(userGuess,questions[0])}>click me(correct)</button>
+                     </form>
+                     
             </main>
         </div>
     );
